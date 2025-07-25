@@ -13,6 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 dotenv.config();
+app.use(cors());
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -30,5 +31,5 @@ app.listen(PORT, () => {
 });
 
 app.use("/", (req, res) => {
-  res.send("Welcome to swiggy");
+  res.json("Welcome to swiggy");
 });
